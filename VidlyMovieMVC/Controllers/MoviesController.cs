@@ -11,10 +11,20 @@ namespace VidlyMovieMVC.Controllers
     {
         // GET: Movies
         [HttpGet]
-        public ActionResult Random()
+        public RedirectToRouteResult Random()
         {
             var movie = new Movie() { Id = 1, Name = "Matrix" };
-            return View(movie);
+            //return View(movie);
+            //return Content("Test content");
+            //return HttpNotFound();
+            //return new EmptyResult();
+            //return RedirectToAction("NotFound404");
+            return RedirectToAction("Index", "Home", new { page = 1, sorBy = "name" });
+        }
+
+        public HttpNotFoundResult NotFound404()
+        {
+            return HttpNotFound();
         }
     }
 }
