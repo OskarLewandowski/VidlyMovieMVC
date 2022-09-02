@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using VidlyMovieMVC.Models;
+using VidlyMovieMVC.ViewModels;
 
 namespace VidlyMovieMVC.Controllers
 {
@@ -14,23 +15,19 @@ namespace VidlyMovieMVC.Controllers
         public ActionResult Random()
         {
             var movie = new Movie() { Id = 1, Name = "Matrix" };
-            ViewData["Movie"] = movie;
+            var customers = new List<Customer>
+            {
+                new Customer { Id= 1, Name = "Oskar"},
+                new Customer { Id= 2, Name = "Asia"}
+            };
 
-            ViewBag.Movie = movie;
-            ViewBag.MovieId = movie.Id;
-            ViewBag.MovieName = movie.Name;
+            var viewmodel = new RandomMovieViewModel
+            {
+                Movie = movie,
+                Customers = customers,
+            };
 
-            //return View();
-
-            //better way to passing data is using models, not viewdata or viewbag
-            return View(movie);
-
-            //return View(movie);
-            //return Content("Test content");
-            //return HttpNotFound();
-            //return new EmptyResult();
-            //return RedirectToAction("NotFound404");
-            //return RedirectToAction("Index", "Home", new { page = 1, sorBy = "name" });
+            return View(viewmodel);
         }
 
         public HttpNotFoundResult NotFound404()
