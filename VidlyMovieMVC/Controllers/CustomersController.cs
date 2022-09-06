@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using VidlyMovieMVC.Models;
+using VidlyMovieMVC.ViewModels;
 
 namespace VidlyMovieMVC.Controllers
 {
@@ -24,7 +25,14 @@ namespace VidlyMovieMVC.Controllers
 
         public ActionResult New()
         {
-            return View();
+            var membershipTypes = _context.MembershipTypes.ToList();
+
+            var viewModel = new NewCustomerViewModel
+            {
+                MembershipTypes = membershipTypes,
+            };
+
+            return View(viewModel);
         }
 
         // GET: Customers
@@ -39,7 +47,7 @@ namespace VidlyMovieMVC.Controllers
         public ActionResult Details(int id)
         {
             var customer = _context.Customers.Include(c => c.MembershipType).SingleOrDefault(c => c.Id == id);
-            
+
             if (customer == null)
                 return HttpNotFound();
 
