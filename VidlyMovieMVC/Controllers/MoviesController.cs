@@ -88,9 +88,7 @@ namespace VidlyMovieMVC.Controllers
         [Route("Movies")]
         public ViewResult Movie()
         {
-            var movies = _context.Movies.Include(m => m.Genre).ToList();
-
-            return View(movies);
+            return View();
         }
 
         public ActionResult Details(int id)
