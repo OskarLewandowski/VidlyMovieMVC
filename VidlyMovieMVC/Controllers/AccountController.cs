@@ -156,7 +156,8 @@ namespace VidlyMovieMVC.Controllers
                 {
                     DrivingLicense = model.DrivingLicense,
                     UserName = model.Email,
-                    Email = model.Email
+                    Email = model.Email,
+                    Phone = model.Phone
                 };
 
                 var result = await UserManager.CreateAsync(user, model.Password);
@@ -385,7 +386,8 @@ namespace VidlyMovieMVC.Controllers
                 {
                     UserName = model.Email,
                     Email = model.Email,
-                    DrivingLicense = model.DrivingLicense
+                    DrivingLicense = model.DrivingLicense,
+                    Phone = model.Phone
                 };
 
                 var result = await UserManager.CreateAsync(user);
