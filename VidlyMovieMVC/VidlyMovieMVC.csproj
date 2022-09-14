@@ -270,6 +270,14 @@
     <Compile Include="Migrations\202209141054303_AddRental.designer.cs">
       <DependentUpon>202209141054303_AddRental.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202209141106136_AddNumberAvailableOnMovie.cs" />
+    <Compile Include="Migrations\202209141106136_AddNumberAvailableOnMovie.designer.cs">
+      <DependentUpon>202209141106136_AddNumberAvailableOnMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202209141107328_SetValueOnNumberAvailable.cs" />
+    <Compile Include="Migrations\202209141107328_SetValueOnNumberAvailable.designer.cs">
+      <DependentUpon>202209141107328_SetValueOnNumberAvailable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -588,6 +596,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202209141054303_AddRental.resx">
       <DependentUpon>202209141054303_AddRental.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202209141106136_AddNumberAvailableOnMovie.resx">
+      <DependentUpon>202209141106136_AddNumberAvailableOnMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202209141107328_SetValueOnNumberAvailable.resx">
+      <DependentUpon>202209141107328_SetValueOnNumberAvailable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
