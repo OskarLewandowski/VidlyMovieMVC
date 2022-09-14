@@ -21,6 +21,12 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-md-4 col-sm-4">
+            <ul id="movies" class="list-group"></ul>
+        </div>
+    </div>
+
     <button class="btn btn-primary">Submit</button>
 </form>
 
@@ -28,7 +34,9 @@
     <script>
         $(document).ready(function () {
 
-            var vm = {};
+            var vm = {
+                movieIds: []
+            };
 
             //customers
             var customers = new Bloodhound({
@@ -68,8 +76,13 @@
                 name: 'movies',
                 display: 'name',
                 source: movies
-            });
+            }).on("typeahead:select", function (e, movie) {
+                $("#movies").append("<li class='list-group-item'>" + movie.name + "</li>");
 
+                $("#movie").typeahead("val", "");
+
+                vm.movieIds.push(movie.id);
+            });
         });
     </script>
 }
