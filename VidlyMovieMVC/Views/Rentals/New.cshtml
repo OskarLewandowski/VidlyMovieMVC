@@ -83,6 +83,23 @@
 
                 vm.movieIds.push(movie.id);
             });
+
+            //form rental
+            $("#newRental").submit(function (e) {
+                e.preventDefault();
+
+                $.ajax({
+                    url: "/api/newRentals",
+                    method: "post",
+                    data: vm
+                })
+                    .done(function () {
+                        console.log("done");
+                    })
+                    .fail(function () {
+
+                    });
+            });
         });
     </script>
 }
